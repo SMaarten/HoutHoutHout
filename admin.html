@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Hout³ · Beheer</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .admin { max-width: 880px; margin: 0 auto; padding: 32px var(--gutter) 80px; }
+    .admin h1 { font-size: 36px; margin-bottom: 6px; }
+    .admin h2 { font-size: 24px; margin: 0 0 14px; }
+    .panel { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; margin: 22px 0; }
+    label { display: block; font-weight: 500; font-size: 14px; margin: 12px 0 4px; }
+    input[type=text], input[type=password], textarea, select {
+      width: 100%; font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper);
+    }
+    textarea { min-height: 70px; resize: vertical; }
+    .row { display: grid; grid-template-columns: 1fr 1fr 120px; gap: 12px; }
+    .muted { color: var(--ink-soft); font-size: 14px; }
+    .btn { cursor: pointer; font: inherit; font-weight: 600; }
+    .btn[disabled] { opacity: .5; cursor: wait; }
+    .btn-small { padding: 6px 12px; font-size: 14px; }
+    .btn-danger { background: #9b2c1f; border-color: #9b2c1f; }
+    .previews, .thumbs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .previews img, .thumbs img { width: 88px; height: 88px; object-fit: cover; border-radius: 4px; }
+    .thumb { position: relative; }
+    .thumb button { position: absolute; top: 2px; right: 2px; width: 24px; height: 24px; border-radius: 50%; border: 0; background: rgba(0,0,0,.7); color: #fff; cursor: pointer; line-height: 1; }
+    .project { border-top: 1px solid var(--line); padding: 16px 0; }
+    .project:first-child { border-top: 0; }
+    .project-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .status { position: sticky; bottom: 16px; margin-top: 20px; padding: 12px 16px; border-radius: var(--radius); background: var(--ink); color: var(--paper); display: none; }
+    .status.show { display: block; }
+    .status.error { background: #9b2c1f; }
+    .savebar { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    @media (max-width: 640px) { .row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="./">HOUT<sup>3</sup></a>
+    <nav><a href="./">Naar de website</a></nav>
+  </header>
+
+  <main class="admin">
+    <h1>Beheer</h1>
+    <p class="muted">Voeg projecten en foto's toe. Wijzigingen worden opgeslagen in GitHub en staan na 1 à 2 minuten online.</p>
+
+    <section class="panel" id="login">
+      <h2>Verbinden met GitHub</h2>
+      <p class="muted">Eenmalig invullen; dit wordt enkel in deze browser bewaard.</p>
+      <div class="row">
+        <div><label for="owner">GitHub-gebruiker</label><input id="owner" type="text" autocomplete="username"></div>
+        <div><label for="repo">Repository</label><input id="repo" type="text" placeholder="hout3"></div>
+        <div><label for="branch">Branch</label><input id="branch" type="text" value="main"></div>
+      </div>
+      <label for="token">Toegangstoken</label>
+      <input id="token" type="password" autocomplete="off" placeholder="github_pat_…">
+      <p class="muted">Maak een <em>fine-grained token</em> aan op github.com → Settings → Developer settings, met enkel toegang tot deze repository en de rechten <em>Contents: Read and write</em>.</p>
+      <div class="savebar">
+        <button class="btn" id="connect">Verbinden</button>
+        <button class="btn btn-ghost btn-small" id="logout" hidden>Afmelden</button>
+      </div>
+    </section>
+
+    <div id="editor" hidden>
+      <section class="panel">
+        <h2>Foto's toevoegen</h2>
+        <label for="target">Project</label>
+        <select id="target"></select>
+        <div id="new-fields">
+          <label for="new-title">Titel</label>
+          <input id="new-title" type="text" placeholder="bv. Eiken eettafel">
+          <label for="new-desc">Korte beschrijving</label>
+          <textarea id="new-desc" placeholder="Houtsoort, afmetingen, afwerking…"></textarea>
+        </div>
+        <label for="files">Foto's</label>
+        <input id="files" type="file" accept="image/*" multiple>
+        <div class="previews" id="previews"></div>
+        <p class="muted">Foto's worden automatisch verkleind (max. 1600 px) en locatiegegevens worden verwijderd.</p>
+        <button class="btn" id="add">Toevoegen aan lijst</button>
+      </section>
+
+      <section class="panel">
+        <h2>Projecten op de website</h2>
+        <p class="muted">Bovenste project staat eerst op de website.</p>
+        <div id="list"></div>
+      </section>
+
+      <div class="savebar">
+        <button class="btn" id="save" disabled>Publiceren</button>
+        <span class="muted" id="dirty"></span>
+      </div>
+    </div>
+
+    <div class="status" id="status" role="status"></div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>

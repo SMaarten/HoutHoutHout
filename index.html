@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hout³ · Meubels op maat</title>
+  <meta name="description" content="Hout³ maakt meubels op maat in massief hout: tafels, banken, kasten en buitenprojecten, met de hand gemaakt in België.">
+  <meta property="og:title" content="Hout³ · Meubels op maat">
+  <meta property="og:description" content="Meubels op maat in massief hout, met de hand gemaakt.">
+  <meta property="og:image" content="photos/wandtafel/1.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="Hout³, naar boven">HOUT<sup>3</sup></a>
+    <nav>
+      <a href="#projecten">Projecten</a>
+      <a href="#werkwijze">Werkwijze</a>
+      <a href="#contact" class="nav-cta">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-text">
+        <p class="eyebrow">Meubelmakerij op maat</p>
+        <h1>Hout, hout, hout.<br><em>Gemaakt voor jouw ruimte.</em></h1>
+        <p class="lede">Tafels, banken, kasten en buitenprojecten in massief hout. Elk stuk wordt ontworpen rond jouw plek en met de hand gemaakt in mijn eigen werkplaats.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#contact">Vraag een ontwerp aan</a>
+          <a class="btn btn-ghost" href="#projecten">Bekijk projecten</a>
+        </div>
+      </div>
+      <figure class="hero-img">
+        <img src="photos/wandtafel/1.jpg" alt="Houten wandtafel met twee lades voor een raam" fetchpriority="high">
+      </figure>
+    </section>
+
+    <section id="projecten" class="section">
+      <div class="section-head">
+        <h2>Projecten</h2>
+        <p>Een greep uit wat de werkplaats al verliet. Klik op een project voor alle foto's.</p>
+      </div>
+      <div id="grid" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section id="werkwijze" class="section werkwijze">
+      <div class="section-head">
+        <h2>Werkwijze</h2>
+      </div>
+      <ol class="steps">
+        <li>
+          <span class="step-n">01</span>
+          <h3>Kennismaking</h3>
+          <p>We bespreken wat je nodig hebt, de afmetingen van je ruimte en de houtsoort die past.</p>
+        </li>
+        <li>
+          <span class="step-n">02</span>
+          <h3>Ontwerp en prijs</h3>
+          <p>Je krijgt een schets met de maten en een duidelijke prijs, zonder verrassingen achteraf.</p>
+        </li>
+        <li>
+          <span class="step-n">03</span>
+          <h3>Maken en leveren</h3>
+          <p>Ik maak het stuk in de werkplaats en lever het bij je af, klaar voor gebruik.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div>
+        <h2>Iets in gedachten?</h2>
+        <p>Stuur een bericht met een korte beschrijving, de gewenste afmetingen en eventueel een foto van de plek. Ik antwoord meestal binnen een paar dagen.</p>
+      </div>
+      <div class="contact-card">
+        <a class="contact-line" href="mailto:info@hout3.be" data-config="email">info@hout3.be</a>
+        <p class="contact-meta">Werkplaats in België · op afspraak</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> Hout³</span>
+    <span>hout3.be · houthouthout.be</span>
+  </footer>
+
+  <dialog id="viewer" aria-label="Projectfoto's">
+    <button class="viewer-close" aria-label="Sluiten">×</button>
+    <button class="viewer-nav prev" aria-label="Vorige foto">‹</button>
+    <img id="viewer-img" alt="">
+    <button class="viewer-nav next" aria-label="Volgende foto">›</button>
+    <div class="viewer-caption">
+      <strong id="viewer-title"></strong>
+      <span id="viewer-desc"></span>
+      <span id="viewer-count"></span>
+    </div>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "wandtafel",
+    "title": "Wandtafel met lades",
+    "description": "Slanke wandtafel met twee lades en een open legplank onderaan. Afgewerkt met een natuurlijke olie.",
+    "photos": ["photos/wandtafel/1.jpg", "photos/wandtafel/2.jpg", "photos/wandtafel/3.jpg"]
+  },
+  {
+    "slug": "tuintafel",
+    "title": "Tuintafel",
+    "description": "Robuust houten tafelblad op een wit stalen onderstel. Gemaakt om buiten te blijven staan.",
+    "photos": ["photos/tuintafel/1.jpg", "photos/tuintafel/2.jpg", "photos/tuintafel/3.jpg"]
+  },
+  {
+    "slug": "snijplank",
+    "title": "Snijplank",
+    "description": "Massief houten snijplank met afgeronde randen.",
+    "photos": ["photos/snijplank/1.jpg"]
+  },
+  {
+    "slug": "dierenschuilhok",
+    "title": "Schuilhok voor dieren",
+    "description": "Overdekt schuilhok met afdak en zitbank, voor de geiten in de wei.",
+    "photos": ["photos/dierenschuilhok/1.jpg", "photos/dierenschuilhok/2.jpg"]
+  },
+  {
+    "slug": "kruk",
+    "title": "Kruk",
+    "description": "Stevige kruk met doorgaande verbindingen en contrasterende wiggen.",
+    "photos": ["photos/kruk/1.jpg"]
+  },
+  {
+    "slug": "bureau",
+    "title": "Bureau en bankje",
+    "description": "Bureau met doorlopende zijkant, met een bijpassend bankje.",
+    "photos": ["photos/bureau/1.jpg"]
+  },
+  {
+    "slug": "bank-geel",
+    "title": "Bank met gekleurde rand",
+    "description": "Eenvoudige bank in grenen met een geschilderde rand.",
+    "photos": ["photos/bank-geel/1.jpg", "photos/bank-geel/2.jpg"]
+  },
+  {
+    "slug": "buitenkast",
+    "title": "Buitenkast met latten",
+    "description": "Opbergkast voor buiten met horizontale latten die de lucht laten circuleren.",
+    "photos": ["photos/buitenkast/1.jpg"]
+  },
+  {
+    "slug": "zitbank-latten",
+    "title": "Zitbank met latten",
+    "description": "Twee lage banken met latten, één met gesloten zijkanten en één met open poten.",
+    "photos": ["photos/zitbank-latten/1.jpg", "photos/zitbank-latten/2.jpg"]
+  },
+  {
+    "slug": "pompkast",
+    "title": "Pompkast",
+    "description": "Weerbestendige kast in betonplex rond een waterpomp, met een klep die openblijft.",
+    "photos": ["photos/pompkast/1.jpg", "photos/pompkast/2.jpg"]
+  },
+  {
+    "slug": "werkplaats",
+    "title": "De werkplaats",
+    "description": "Werkbank met ladekasten en wandrekken. Hier worden alle projecten gemaakt.",
+    "photos": ["photos/werkplaats/1.jpg"]
+  }
+]
